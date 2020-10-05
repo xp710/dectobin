@@ -1,4 +1,4 @@
-dectobin: cursor.o space.o lifeboard.o engine.o main.o
+dectobin: main.cpp
 	g++ -o main.cpp
 
 clean:
