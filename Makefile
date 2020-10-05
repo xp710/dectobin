@@ -1,5 +1,5 @@
 dectobin: main.cpp
-	g++ -o main.cpp
+	g++ -o dectobin main.cpp
 
 clean:
 	rm dectobin
