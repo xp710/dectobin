@@ -1,9 +1,10 @@
 /*****************/
-/* DecToBin v1.0 */
+/* DecToBin v2.0 */
 /*****************/
 
 //Creator: XP710
 //License: GPL3
+//TODO: Make it handle even bigger numbers!
 
 #include <iostream>
 #include <cmath>
@@ -20,13 +21,13 @@ int main(int argn, char* argv[])
     };
 
     //Initialize the number we're converting to binary
-    int number;
+    long long int number;
     try {
         //Throw the wrongNumberOfArguments exception if the number of arguments is wrong
         if (argn != 2) throw wrongNumberOfArguments();
 
         //If not, define the number we're converting
-        number = stoi((string)argv[1]);
+        number = stoull((string)argv[1]);
 
     }catch (wrongNumberOfArguments &e){
         cout << e.what() << endl;
@@ -40,18 +41,16 @@ int main(int argn, char* argv[])
     }
 
     //Find the highest number we need to test the argument against.
-    int exponent = (log10(number)/log10(2)); //Automatically rounds down.
-
-    string ans;
+    long long int exponent = (log10(number)/log10(2)); //Automatically rounds down.
 
     while (exponent >= 0){
         if (number >= pow(2, exponent)){
-            ans+= '1';
+            cout << '1';
             number-= pow(2, exponent);
         }else{
-            ans+= '0';
+            cout << '0';
         }
         exponent--;
     }
-    cout << ans << endl;
+    cout << endl;
 }
